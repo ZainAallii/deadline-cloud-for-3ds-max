@@ -7,7 +7,8 @@ This package has two active branches:
 ## Build / Test / Release
 
 ### Build the package
-
+Clone the repository ```aws-deadline/deadline-cloud-for-3ds-max/``` navigate to the root of ```deadline-cloud-for-3ds-max``` and run
+Install Hatch by folllowing here: https://hatch.pypa.io/latest/install/
 ```bash
 hatch build
 ```
@@ -52,26 +53,26 @@ WARNING: This workflow installs additional Python packages into your 3ds Max's p
 
 #### Manual installation
 
-1. Copy `STDCMenuCreator.ms` into your 3DS Max startup scripts (e.g. `C:\Program Files\Autodesk\<version>\scripts\Startup`)
-2. Put `AWSDeadline-SubmitToDeadlineCloud.mcr` in 3ds Max usermacros directory (e.g. `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros`).
+1. Copy `deadline-cloud-for-3ds-max\nstall_files\STDCMenuCreator.ms` into your 3DS Max startup scripts (e.g. `C:\Program Files\Autodesk\<version>\scripts\Startup`)
+2. Put `deadline-cloud-for-3ds-max\install_files\AWSDeadline-SubmitToDeadlineCloud.mcr` in 3ds Max usermacros directory (e.g. `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros`).
 3. Create a `python` folder in your scripts directory (e.g. `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\scripts`).
-4. Copy `max_submitter` folder into that newly created `python` folder.
+4. Copy `deadline-cloud-for-3ds-max\src\deadline\max_submitter\` folder into that newly created `python` folder.
 5. Install `deadline` package (from CodeArtifact) to `~\DeadlineCloudSubmitter\Submitters\3dsMax\scripts` using a Python 3.9 installation (for compatibility with Max)
     - `pip install deadline -t ~\DeadlineCloudSubmitter\Submitters\3dsMax\scripts`
 
 #### Install for Development
 
-1. Copy `STDCMenuCreator.ms` into your 3DS Max startup scripts (e.g. `C:\Program Files\Autodesk\<version>\scripts\Startup`).
-2. Modify the file path in `STDCMenuCreator.ms`  to `<reporoot>/src/deadline/max_submitter`. Set the `DEBUG` variable to `true`.
-3. Put `AWSDeadline-SubmitToDeadlineCloud.mcr` and `AWSDeadline-RunJobBundleTests.mcr` in 3ds Max usermacros directory (e.g. `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros`).
-4. Modify the path in `AWSDeadline-SubmitToDeadlineCloud.mcr` to `<reporoot>/src/deadline/max_submitter/run_ui.py`. Set the `DEBUG` variable to `true`.
-5. Modify the path in `AWSDeadline-RunJobBundleTests.mcr` to `<reporoot>/src/deadline/max_submitter/job_bundle_output_test_runner.py`. Set the `DEBUG` variable to `true`.
+1. Copy `deadline-cloud-for-3ds-max\nstall_files\STDCMenuCreator.ms` into your 3DS Max startup scripts (e.g. `C:\Program Files\Autodesk\<version>\scripts\Startup`).
+2. Modify the file path in `C:\Program Files\Autodesk\<version>\scripts\Startup\STDCMenuCreator.ms`  to `<reporoot>/src/deadline/max_submitter`. Set the `DEBUG` variable to `true`.
+3. Put `deadline-cloud-for-3ds-max\install_files\AWSDeadline-SubmitToDeadlineCloud.mcr` and `deadline-cloud-for-3ds-max\install_files\AWSDeadline-RunJobBundleTests.mcr` in 3ds Max usermacros directory (e.g. `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros`).
+4. Modify the path in `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros\AWSDeadline-SubmitToDeadlineCloud.mcr` to `<reporoot>/src/deadline/max_submitter/run_ui.py`. Set the `DEBUG` variable to `true`.
+5. Modify the path in `C:\Users\<username>\AppData\Local\Autodesk\3dsMax\<version>\ENU\usermacros\AWSDeadline-RunJobBundleTests.mcr` to `<reporoot>/src/deadline/max_submitter/job_bundle_output_test_runner.py`. Set the `DEBUG` variable to `true`.
 6. Install `deadline` package (from CodeArtifact) to `~\DeadlineCloudSubmitter\Submitters\3dsMax\scripts` using a Python 3.9 installation (for compatibility with Max)
     - `pip install deadline -t ~\DeadlineCloudSubmitter\Submitters\3dsMax\scripts`
 
 ### Usage
 
-After installation a "Deadline Cloud" menu is available the menu bar. Run "Submit to Deadline Cloud" to open the submitter.
+After installation a "Deadline Cloud" menu is available in the menu bar. Run "Submit to Deadline Cloud" to open the submitter.
 
 ### Application Interface Adaptor Development Workflow
 
